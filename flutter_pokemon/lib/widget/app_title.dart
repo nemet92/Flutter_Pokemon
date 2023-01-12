@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokemon/constants/constants.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_pokemon/constants/ui_helper.dart';
 
 class AppTitle extends StatefulWidget {
   const AppTitle({super.key});
@@ -13,24 +13,29 @@ class _AppTitleState extends State<AppTitle>
     with PokemonText, PokemonImage, PokemenTextStyle {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              title,
-              style: titleStyle(),
-            )),
-        Align(
-          alignment: Alignment.topRight,
-          child: Image.asset(
-            pokedexImage,
-            width: 100.w,
-            height: 100.w,
-            fit: BoxFit.fitWidth,
+    return SizedBox(
+      height: UIHelper.getAppTitleWidgetHeigth(),
+      child: Stack(
+        children: [
+          Padding(
+            padding: UIHelper.getDefaultPadding(),
+            child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  title,
+                  style: titleStyle(),
+                )),
           ),
-        )
-      ],
+          Align(
+            alignment: Alignment.topRight,
+            child: Image.asset(
+              pokedexImage,
+              width: UIHelper.getAppImageWidgetHeigth(),
+              fit: BoxFit.fitWidth,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
