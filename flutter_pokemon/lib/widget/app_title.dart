@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pokemon/constants/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTitle extends StatefulWidget {
@@ -8,17 +9,22 @@ class AppTitle extends StatefulWidget {
   State<AppTitle> createState() => _AppTitleState();
 }
 
-class _AppTitleState extends State<AppTitle> {
-  String pokeballImageUrl = 'images/pokeball.png';
+class _AppTitleState extends State<AppTitle>
+    with PokemonText, PokemonImage, PokemenTextStyle {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        const Align(alignment: Alignment.topLeft, child: Text("Pokedex")),
+        Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              title,
+              style: titleStyle(),
+            )),
         Align(
           alignment: Alignment.topRight,
           child: Image.asset(
-            pokeballImageUrl,
+            pokedexImage,
             width: 100.w,
             height: 100.w,
             fit: BoxFit.fitWidth,
