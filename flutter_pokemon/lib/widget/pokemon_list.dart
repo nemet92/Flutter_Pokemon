@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokemon/model/pokemon_model.dart';
 import 'package:flutter_pokemon/services/pokedex_api.dart';
+import 'package:flutter_pokemon/widget/pokemonList_item.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PokemonList extends StatefulWidget {
   const PokemonList({super.key});
@@ -26,13 +28,12 @@ class _PokemonListState extends State<PokemonList> {
         if (snapshot.hasData) {
           // ignore: no_leading_underscores_for_local_identifiers
           List<PokemonModel> _listem = snapshot.data!;
-          return ListView.builder(
-              itemCount: _listem.length,
+          return GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount:
+                      ScreenUtil().orientation == Orientation.portrait ? 2 : 3),
               itemBuilder: (context, index) {
-                var oankiPokemon = _listem[index];
-                return ListTile(
-                  title: Text(oankiPokemon.name.toString()),
-                );
+                return PokemonListItem(pokemon: _listem[index]);
               });
         } else if (snapshot.hasError) {
           return const Center(

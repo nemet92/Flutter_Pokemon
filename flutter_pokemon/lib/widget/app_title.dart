@@ -10,7 +10,7 @@ class AppTitle extends StatefulWidget {
 }
 
 class _AppTitleState extends State<AppTitle>
-    with PokemonText, PokemonImage, PokemenTextStyle {
+    with PokemonText, getPokemonImage, getPokemenTextStyle {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
