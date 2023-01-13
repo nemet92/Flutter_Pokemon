@@ -29,6 +29,7 @@ class _PokemonListState extends State<PokemonList> {
           // ignore: no_leading_underscores_for_local_identifiers
           List<PokemonModel> _listem = snapshot.data!;
           return GridView.builder(
+              itemCount: _listem.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount:
                       ScreenUtil().orientation == Orientation.portrait ? 2 : 3),

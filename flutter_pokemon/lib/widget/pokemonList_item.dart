@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokemon/constants/constants.dart';
+import 'package:flutter_pokemon/constants/ui_helper.dart';
 import 'package:flutter_pokemon/model/pokemon_model.dart';
+import 'package:flutter_pokemon/widget/poke_img_and_ball.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class PokemonListItem extends StatefulWidget {
   PokemonModel pokemon;
   PokemonListItem({super.key, required this.pokemon});
@@ -21,18 +24,28 @@ class _PokemonListItemState extends State<PokemonListItem>
       ),
       elevation: 3,
       shadowColor: Colors.white,
-      color: Colors.red.shade200,
-      child: Column(
-        children: [
-          Text(
-            widget.pokemon.name ?? "N?A",
-            style: titleNameStyle(),
-          ),
-          Chip(
-            label: Text(widget.pokemon.type![0]),
-            labelStyle: typeChipStyle(),
-          )
-        ],
+      color: UIHelper.getColorFromType(widget.pokemon.type![0]),
+      child: Padding(
+        padding: UIHelper.getDefaultPadding(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.pokemon.name ?? "N?A",
+              style: titleNameStyle(),
+            ),
+            Chip(
+              label: Text(widget.pokemon.type![0]),
+              labelStyle: typeChipStyle(),
+            ),
+            Expanded(
+              child: PokeImageAndBall(
+                pokemen: widget.pokemon,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
