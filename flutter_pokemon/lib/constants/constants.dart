@@ -34,6 +34,21 @@ mixin getPokemenChipTextStyle {
   }
 }
 
+mixin getPokeInfoLabelTextStyle {
+  TextStyle typePokeInfoLabelStyle() {
+    return TextStyle(
+        fontSize: _calculateFontSize(20),
+        fontWeight: FontWeight.bold,
+        color: Colors.black);
+  }
+}
+
+mixin getPokeInfoTextStyle {
+  TextStyle typePoekInfoTextStyle() {
+    return TextStyle(fontSize: _calculateFontSize(16), color: Colors.black);
+  }
+}
+
 _calculateFontSize(int size) {
   if (ScreenUtil().orientation == Orientation.portrait) {
     return size.sp;
