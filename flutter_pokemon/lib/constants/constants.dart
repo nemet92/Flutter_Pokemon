@@ -21,7 +21,7 @@ mixin getPokemenNameTextStyle {
     return TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: _calculateFontSize(20));
+        fontSize: _calculateFontSize(16));
   }
 }
 
@@ -30,14 +30,14 @@ mixin getPokemenChipTextStyle {
     return TextStyle(
         color: Colors.white,
         fontWeight: FontWeight.bold,
-        fontSize: _calculateFontSize(20));
+        fontSize: _calculateFontSize(12));
   }
 }
 
 mixin getPokeInfoLabelTextStyle {
   TextStyle typePokeInfoLabelStyle() {
     return TextStyle(
-        fontSize: _calculateFontSize(20),
+        fontSize: _calculateFontSize(16),
         fontWeight: FontWeight.bold,
         color: Colors.black);
   }
@@ -45,7 +45,7 @@ mixin getPokeInfoLabelTextStyle {
 
 mixin getPokeInfoTextStyle {
   TextStyle typePoekInfoTextStyle() {
-    return TextStyle(fontSize: _calculateFontSize(16), color: Colors.black);
+    return TextStyle(fontSize: _calculateFontSize(12), color: Colors.black);
   }
 }
 
